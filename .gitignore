@@ -1,0 +1,7 @@
+keySaveFile*
+id_*
+*.pem
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
