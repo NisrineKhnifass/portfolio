@@ -1,0 +1,370 @@
+\documentclass[9pt,a4paper]{extarticle}
+
+% ---------- Packages ----------
+\usepackage[
+  top=0.5cm,
+  bottom=0.5cm,
+  left=1cm,
+  right=1cm
+]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% ---------- Colors ----------
+\definecolor{navy}{HTML}{1F2A3C}
+\definecolor{darkblue}{HTML}{0A1628}
+\definecolor{gray}{HTML}{606060}
+\definecolor{black2}{HTML}{1A1A1A}
+\definecolor{accent}{HTML}{93A3B3}
+
+% ---------- Settings ----------
+\pagestyle{empty}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\linespread{1}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=navy,
+  linkcolor=navy
+}
+
+% ---------- Photo and name ----------
+\newcommand{\cvname}[2]{%
+  \noindent
+  \begin{minipage}[c]{3.1cm}
+    \centering
+    \begin{tikzpicture}
+      \clip (0,0) circle (1.5cm);
+      \node[inner sep=0pt] at (0,0) {%
+        \includegraphics[
+          width=3cm,
+          height=3cm,
+          keepaspectratio
+        ]{ma-photo.jpeg}%
+      };
+    \end{tikzpicture}
+  \end{minipage}%
+  \hspace{0.3cm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-3.4cm\relax}
+    \centering
+    {\fontsize{28}{31}\selectfont
+      \bfseries\color{navy}#1\par}
+    \vspace{6pt}
+    {\fontsize{8.5}{10.5}\selectfont
+      \color{gray}#2\par}
+  \end{minipage}
+  \par\vspace{5pt}
+  {\color{navy}\hrule height 0.8pt}
+}
+
+% ---------- Profile ----------
+\newcommand{\cvprofile}[1]{%
+  \par\vspace{7pt}
+  {\centering
+    \fontsize{12}{14}\selectfont
+    \itshape\color{black2}#1\par}
+  \vspace{3pt}
+}
+
+% ---------- Sections ----------
+% Distributes available space between sections.
+\newcommand{\cvsection}[1]{%
+  \par
+  \vspace{4pt plus 1fill}
+  {\bfseries\large\color{navy}\MakeUppercase{#1}\par}
+  \vspace{1pt}
+  {\color{accent}\hrule height 0.5pt}
+  \vspace{3pt}
+}
+
+% ---------- Entry headings ----------
+\newcommand{\cventry}[3]{%
+  \noindent
+  {\small\bfseries\color{darkblue}#1}%
+  \hfill
+  {\footnotesize\itshape\bfseries\color{accent}#3}\par
+}
+
+% ---------- Subheadings ----------
+\newcommand{\cvsub}[1]{%
+  {\footnotesize\itshape\color{gray}#1\par}
+  \vspace{1pt}
+}
+
+% ---------- Lists ----------
+\newenvironment{cvitemize}{%
+  \begin{itemize}[
+    leftmargin=10pt,
+    itemsep=1pt,
+    topsep=1pt,
+    parsep=0pt,
+    partopsep=0pt,
+    label=\textbullet,
+    font=\color{accent}
+  ]
+  \fontsize{8}{9.2}\selectfont
+  \color{black2}
+}{%
+  \end{itemize}
+  \vspace{2pt}
+}
+
+% ---------- Highlighted text ----------
+\newcommand{\hl}[1]{%
+  \textbf{\color{darkblue}#1}%
+}
+
+\begin{document}
+
+% Fixed height: distributes space down to the bottom of the page.
+\noindent
+\begin{minipage}[t][\dimexpr\textheight-2pt\relax][s]{\textwidth}
+
+% ================= HEADER =================
+
+\cvname{Nisrine KHNIFASS}{%
+  \href{mailto:nisrine.khnifass@hotmail.com}
+       {nisrine.khnifass@hotmail.com}
+  ~\textbar~
+  +33 7 67 87 07 45
+  \\[3pt]
+  LinkedIn: Nisrine Khnifass
+  ~\textbar~
+  Longvic, France
+  \\[3pt]
+  GitHub:
+  \href{https://github.com/NisrineKhnifass}{NisrineKhnifass}
+  \\[3pt]
+  Portfolio:
+  \href{https://nisrinekhnifass.github.io/portfolio/}
+       {https://nisrinekhnifass.github.io/portfolio/}
+}
+
+\cvprofile{%
+  Final-year Computer Engineering student at ENSICAEN,
+  specializing in cybersecurity and electronic payments,
+  currently on an academic exchange in Japan.
+  Seeking a six-month cybersecurity internship
+  starting in March 2027.
+}
+
+% ================= EXPERIENCE =================
+
+\cvsection{Experience --- Computing \& Engineering}
+
+\cventry
+  {Research Intern --- Sungkyunkwan University (SKKU)}
+  {}
+  {Apr. -- Aug. 2026}
+
+\cvsub{Seoul, South Korea}
+
+\begin{cvitemize}
+  \item \hl{Designed and delivered a functional prototype}
+  of a system for monitoring household hazards involving
+  children, operating end to end from a surveillance
+  camera video feed
+
+  \item Built a five-module pipeline (child detection,
+  activity recognition, context analysis, risk assessment,
+  notification) in \hl{Python (PyTorch/TensorFlow)},
+  with a perception module processing video feeds at
+  \hl{\textasciitilde48 frames/second}
+
+  \item Achieved \hl{88.7\,\% accuracy} and
+  \hl{100\,\% recall on dangerous situations}
+  (no hazards missed across 335 test videos);
+  compared 9 detection models, 3 video recognition models
+  and 6 decision-making configurations (including 4 LLMs)
+\end{cvitemize}
+
+% ================= PROJECTS =================
+
+\cvsection{Projects}
+
+\cventry
+  {Magecart Detection Scanner --- Personal Project}
+  {}
+  {2026 -- ongoing}
+
+\begin{cvitemize}
+  \item Developing an automated scanner for third-party
+  scripts on e-commerce payment pages in \hl{Python}.
+  \hl{Expected outcome:} identification of web-skimming
+  threats before exploitation
+
+  \item Implementing a module to support compliance with
+  \hl{PCI DSS 6.4.3 / 11.6.1} requirements
+  (script inventory and tampering detection).
+  \hl{Expected outcome:} an actionable compliance report
+\end{cvitemize}
+
+\cventry
+  {Project Lead --- Interactive Escape Game --- H3P Solution}
+  {}
+  {2026}
+
+\begin{cvitemize}
+  \item \hl{Managed and coordinated a team of four}
+  using \hl{GitLab} (version control and task tracking)
+  to design an interactive escape game mobile application
+  in \hl{Flutter}
+
+  \item Developed advanced features:
+  simultaneous management of \hl{multiple teams in real time},
+  automatically generated map, timer and interactive questions
+
+  \item \hl{Delivered a functional MVP}, validated
+  and positively received by the client
+\end{cvitemize}
+
+\cventry{Sudoku Assistant --- Qt / C++}{}{2026}
+
+\begin{cvitemize}
+  \item Developed a Sudoku-solving assistant using
+  an \hl{MVP architecture}
+
+  \item Implemented dynamic interface language switching
+  (French / English)
+\end{cvitemize}
+
+% ================= EDUCATION =================
+
+\cvsection{Education}
+
+\cventry
+  {Shibaura Institute of Technology}
+  {}
+  {Sept. 2026 -- Feb. 2027}
+
+\cvsub{Tokyo, Japan ~\textbar~ Academic exchange semester}
+
+\begin{cvitemize}
+  \item Continuing Computer Engineering studies
+  through an international exchange program
+\end{cvitemize}
+
+\cventry
+  {ENSICAEN --- National Graduate School of Engineering, Caen}
+  {}
+  {2024 -- 2027}
+
+\cvsub{%
+  Caen, France ~\textbar~
+  Engineering Degree in Software Development,
+  specialization in Cybersecurity
+}
+
+\begin{cvitemize}
+  \item Coursework: Cybersecurity, Cryptography,
+  Software Security, Security Technologies,
+  Coding Theory, Electronic Payments
+  (ISO7816, EMV, PCI DSS), Software Engineering,
+  Web \& Mobile Development, Data Mining \& Machine Learning
+\end{cvitemize}
+
+\cventry{EM Normandie (dual degree)}{}{2025 -- 2027}
+
+\cvsub{Caen, France ~\textbar~ Master's Degree in Management}
+
+\begin{cvitemize}
+  \item Coursework: Leadership \& Management, Marketing,
+  Business Strategy, Finance, Ethics
+\end{cvitemize}
+
+\cventry
+  {Preparatory Classes, Lycée Carnot --- Honors}
+  {}
+  {2022 -- 2024}
+
+\cvsub{%
+  Dijon, France ~\textbar~
+  Two-year preparation for competitive engineering
+  school entrance examinations (PCSI -- PC)
+}
+
+\begin{cvitemize}
+  \item Algebra, Calculus, Computer Science,
+  Fundamental Physics, Organic and Physical Chemistry
+\end{cvitemize}
+
+% ================= SKILLS =================
+
+\cvsection{Skills}
+
+{\fontsize{8.5}{10}\selectfont
+\textbf{\color{navy}Soft Skills:}
+adaptability, initiative, confident verbal communication,
+technical curiosity, team coordination\\
+\textbf{\color{navy}Cybersecurity:}
+cryptography, software security,
+security technologies, coding theory\\
+\textbf{\color{navy}Electronic Payments:}
+smart cards (ISO7816, EMV),
+electronic payment architecture \& ecosystem,
+payment transaction flows, fraud \& PCI DSS\\
+\textbf{\color{navy}Programming Languages:}
+Python, Java, C, C++, JavaScript, Dart, Bash\\
+\textbf{\color{navy}Frameworks \& Libraries:}
+Flutter, React, Node.js, Qt\\
+\textbf{\color{navy}Databases:}
+PostgreSQL\\
+\textbf{\color{navy}Data / AI:}
+PyTorch, TensorFlow, computer vision,
+data mining and machine learning\\
+\textbf{\color{navy}Tools \& Methods:}
+Git, GitLab, GitHub, Linux ---
+SOLID, design patterns, Agile\\
+\textbf{\color{navy}Languages:}
+French (native), English (fluent, TOEIC 900),
+Spanish (intermediate), German (beginner)\par
+}
+
+% ================= OTHER EXPERIENCE =================
+
+\cvsection{Other Professional Experience}
+
+\cventry
+  {Sales Associate --- C\&A}
+  {}
+  {Aug. 2024 -- July 2025}
+
+\begin{cvitemize}
+  \item Independently managed a retail department:
+  restocking, inventory checks, customer advice and assistance
+\end{cvitemize}
+
+\cventry
+  {Property Rental Coordinator --- Self-employed}
+  {}
+  {2022 -- 2024}
+
+\begin{cvitemize}
+  \item Managed apartment rentals, contract tracking,
+  scheduling and administrative tasks
+\end{cvitemize}
+
+% ================= ADDITIONAL INFORMATION =================
+
+\cvsection{Additional Information}
+
+{\fontsize{8.5}{10}\selectfont
+\textbf{\color{navy}Interests:}
+Entrepreneurship, Travel, Sports, Cooking
+~\textbar~
+\textbf{\color{navy}Other:}
+Driving license (Category B), own vehicle,
+BAFA (French youth activity leader qualification)\par
+}
+
+\end{minipage}
+
+\end{document}
