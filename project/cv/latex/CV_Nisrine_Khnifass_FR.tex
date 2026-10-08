@@ -1,6 +1,6 @@
 \documentclass[9pt,a4paper]{extarticle}
 
-% ---------- Packages ----------
+% - Packages -
 \usepackage[
   top=0.5cm,
   bottom=0.5cm,
@@ -16,14 +16,14 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
-% ---------- Couleurs ----------
+% - Couleurs -
 \definecolor{navy}{HTML}{1F2A3C}
 \definecolor{darkblue}{HTML}{0A1628}
 \definecolor{gray}{HTML}{606060}
 \definecolor{black2}{HTML}{1A1A1A}
 \definecolor{accent}{HTML}{93A3B3}
 
-% ---------- Réglages ----------
+% - Réglages -
 \pagestyle{empty}
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
@@ -36,7 +36,7 @@
   linkcolor=navy
 }
 
-% ---------- Photo et nom ----------
+% - Photo et nom -
 \newcommand{\cvname}[2]{%
   \noindent
   \begin{minipage}[c]{3.1cm}
@@ -65,7 +65,7 @@
   {\color{navy}\hrule height 0.8pt}
 }
 
-% ---------- Présentation agrandie ----------
+% - Présentation agrandie -
 \newcommand{\cvprofile}[1]{%
   \par\vspace{7pt}
   {\centering
@@ -74,7 +74,7 @@
   \vspace{3pt}
 }
 
-% ---------- Rubriques ----------
+% - Rubriques -
 % Répartit l'espace disponible entre les rubriques.
 \newcommand{\cvsection}[1]{%
   \par
@@ -85,7 +85,7 @@
   \vspace{3pt}
 }
 
-% ---------- Titres des entrées ----------
+% - Titres des entrées -
 \newcommand{\cventry}[3]{%
   \noindent
   {\small\bfseries\color{darkblue}#1}%
@@ -93,13 +93,13 @@
   {\footnotesize\itshape\bfseries\color{accent}#3}\par
 }
 
-% ---------- Sous-titres ----------
+% - Sous-titres -
 \newcommand{\cvsub}[1]{%
   {\footnotesize\itshape\color{gray}#1\par}
   \vspace{1pt}
 }
 
-% ---------- Listes ----------
+% - Listes -
 \newenvironment{cvitemize}{%
   \begin{itemize}[
     leftmargin=10pt,
@@ -117,7 +117,7 @@
   \vspace{2pt}
 }
 
-% ---------- Texte mis en valeur ----------
+% - Texte mis en valeur -
 \newcommand{\hl}[1]{%
   \textbf{\color{darkblue}#1}%
 }
@@ -149,41 +149,34 @@
 }
 
 \cvprofile{%
-  Élève ingénieure en dernière année à l'ENSICAEN en
-  développement informatique, spécialisée en cybersécurité
-  et e-paiement, actuellement en échange académique au Japon.
-  À la recherche d'un stage de 6 mois en cybersécurité
-  à partir de mars 2027.
+ Élève ingénieure en dernière année à l’ENSICAEN, 
+ spécialisée en cybersécurité et sécurité des paiements 
+ électroniques. Passionnée par la sécurité applicative,
+  la protection des systèmes de paiement. 
+  Actuellement en échange académique au Japon et à la recherche 
+  d’un stage de 6 mois à partir de mars 2027
 }
 
 % ================= EXPERIENCE =================
 
-\cvsection{Expérience --- Informatique \& Ingénierie}
+\cvsection{Expérience - Informatique \& Ingénierie}
 
 \cventry
-  {Stagiaire recherche --- Sungkyunkwan University (SKKU)}
+  {Stagiaire de recherche - Sungkyunkwan University (SKKU)}
   {}
-  {Avril -- Août 2026}
+  {Avril - Août 2026}
 
-\cvsub{Séoul, Corée du Sud}
+\cvsub{Séoul, Corée du Sud ~\textbar~ Python, PyTorch, TensorFlow, vision par ordinateur, LLM}
 
 \begin{cvitemize}
-  \item \hl{Conçu et livré un prototype fonctionnel} de système
-  de surveillance des dangers domestiques pour enfants,
-  opérationnel de bout en bout à partir d'un flux vidéo
-  de caméra de surveillance
+  \item \hl{Objectif~:} conception d'un prototype de bout en bout qui détecte
+  les dangers domestiques pour les enfants à partir d'une caméra de surveillance,
+  via un \hl{pipeline en 5 modules} (détection, reconnaissance d'activité,
+  analyse du contexte, évaluation du risque, notification)
+  traitant \hl{\textasciitilde48 images/seconde}
 
-  \item Pipeline en 5 modules (détection enfant,
-  reconnaissance d'activité, contexte, décision du risque,
-  notification) en \hl{Python (PyTorch/TensorFlow)}, avec un
-  module de perception traitant les flux vidéo à
-  \hl{\textasciitilde48 images/seconde}
-
-  \item Atteint \hl{88,7\,\% d'accuracy} et
-  \hl{100\,\% de rappel sur les situations dangereuses}
-  (aucun danger manqué sur 335 vidéos de test)~;
-  comparé 9 modèles de détection, 3 modèles de reconnaissance
-  vidéo et 6 configurations de décision (dont 4 LLM)
+  \item \hl{Résultats~:} \hl{88,7\,\% d'accuracy} et
+  \hl{100\,\% de rappel sur les situations dangereuses}.
 \end{cvitemize}
 
 % ================= PROJETS =================
@@ -191,48 +184,45 @@
 \cvsection{Projets}
 
 \cventry
-  {Scanner de détection Magecart --- Projet personnel}
+  {Scanner de détection Magecart - Projet personnel}
   {}
-  {2026 -- en cours}
+  {2026 - en cours}
 
 \begin{cvitemize}
-  \item Développement d'un scanner automatisé des scripts tiers
-  sur les pages de paiement e-commerce, en \hl{Python}.
-  \hl{Résultat attendu~:} identification des cas de web-skimming
-  avant exploitation
+  \item Analyse des exigences \hl{PCI DSS 4.0 (6.4.3 / 11.6.1)} et
+  des techniques de \hl{web-skimming} (injection de scripts tiers,
+  obfuscation, exfiltration) pour définir les règles de détection.
 
-  \item Implémentation d'un module de conformité aux exigences
-  \hl{PCI DSS 6.4.3 / 11.6.1} (inventaire et détection
-  d'altération de scripts).
-  \hl{Résultat attendu~:} rapport de conformité exploitable
+  \item Conception de l'architecture d'un scanner en \hl{Python}
+  (\hl{Playwright}) : inventaire des scripts d'une page de paiement,
+  empreinte \hl{SHA-256} et détection d'altération entre deux scans.
+
+  \item En développement~: prototype d'inventaire, banc d'essai local
+  avec skimmer inoffensif, puis rapport de conformité.
 \end{cvitemize}
 
+
 \cventry
-  {Cheffe de projet --- Escape Game interactif --- H3P Solution}
+  {Cheffe de projet - Escape Game interactif - H3P Solution}
   {}
   {2026}
 
 \begin{cvitemize}
-  \item \hl{Géré et piloté une équipe de 4 personnes}
-  via \hl{GitLab} (gestion de version, suivi des tâches)~:
-  conception d'une application mobile \hl{Flutter},
-  escape game interactif
+  \item \hl{Direction d'une équipe de 4 personnes} avec \hl{GitLab} pour
+  concevoir une application mobile d'escape game en \hl{Flutter},
+  avec \hl{gestion de plusieurs équipes en temps réel},
+  carte générée automatiquement, chronomètre et questions interactives
 
-  \item Développé des fonctionnalités avancées~:
-  gestion simultanée de \hl{plusieurs équipes en temps réel},
-  carte auto-générée, chronomètre, questions interactives
-
-  \item \hl{Livré un MVP fonctionnel}, validé et apprécié
-  par le client
+  \item \hl{Livré un MVP fonctionnel}, validé et apprécié par le client
 \end{cvitemize}
 
-\cventry{Sudoku Assistant --- Qt / C++}{}{2026}
+\cventry{Sudoku Assistant - Qt / C++}{}{2026}
 
 \begin{cvitemize}
-  \item Développé un assistant de résolution de grilles
+  \item Développement d'un assistant de résolution de grilles
   de Sudoku, avec une \hl{architecture MVP}
 
-  \item Implémenté une internationalisation dynamique
+  \item Implémentation d'une internationalisation dynamique
   de l'interface (français / anglais)
 \end{cvitemize}
 
@@ -243,7 +233,7 @@
 \cventry
   {Shibaura Institute of Technology}
   {}
-  {Sept. 2026 -- Fév. 2027}
+  {Sept. 2026 - Fév. 2027}
 
 \cvsub{Tokyo, Japon ~\textbar~ Semestre d'échange académique}
 
@@ -253,9 +243,9 @@
 \end{cvitemize}
 
 \cventry
-  {ENSICAEN --- École nationale supérieure d'ingénieurs de Caen}
+  {ENSICAEN - École nationale supérieure d'ingénieurs de Caen}
   {}
-  {2024 -- 2027}
+  {2024 - 2027}
 
 \cvsub{%
   Caen, France ~\textbar~
@@ -272,7 +262,7 @@
   Fouille de données \& apprentissage
 \end{cvitemize}
 
-\cventry{EM Normandie (double diplôme)}{}{2025 -- 2027}
+\cventry{EM Normandie (double diplôme)}{}{2025 - 2027}
 
 \cvsub{Caen, France ~\textbar~ Master's Degree in Management}
 
@@ -282,14 +272,14 @@
 \end{cvitemize}
 
 \cventry
-  {Classes préparatoires, Lycée Carnot --- mention Bien}
+  {Classes préparatoires, Lycée Carnot - mention Bien}
   {}
-  {2022 -- 2024}
+  {2022 - 2024}
 
 \cvsub{%
   Dijon, France ~\textbar~
   Préparation aux concours des grandes écoles d'ingénieurs
-  (PCSI -- PC)
+  (PCSI - PC)
 }
 
 \begin{cvitemize}
@@ -302,33 +292,27 @@
 \cvsection{Compétences}
 
 {\fontsize{8.5}{10}\selectfont
-\textbf{\color{navy}Soft Skills~:}
-adaptabilité, esprit d’initiative, aisance à l’oral,
-curiosité technique, coordination d’équipe\\
 
-\textbf{\color{navy}Cybersécurité~:}
-cryptographie, sécurité du logiciel,
-technologie de sécurité, théorie des codes\\
-\textbf{\color{navy}Monétique \& Paiement~:}
-cartes à puce (ISO7816, EMV),
-architecture \& écosystème du paiement électronique,
-flux monétique, fraude \& PCI DSS\\
+\textbf{\color{navy}Cybersécurité et cryptographie~:}
+cryptographie symetrique / asymetrique ( AES, RSA, ECC),PKI & X.509, TLS 1.3, IPsec/VPN, formal verification(ProVerif)
+\textbf{\color{navy}Sécurité des paiements~:}
+EMV, PCI DSS, HSM et gestion des clés,
+ ISO 8583, ISO/IEC 7816/14443,
+ flux de transactions de paiement,
+ prévention de la fraude
+architecture \& écosystème du paiement électronique\\
+\textbf{\color{navy}Langages~:} développement sécurisé, sécurité des applications web \\
 \textbf{\color{navy}Langages~:}
 Python, Java, C, C++, JavaScript, Dart, Bash\\
-\textbf{\color{navy}Frameworks \& bibliothèques~:}
-Flutter, React, Node.js, Qt\\
-\textbf{\color{navy}Bases de données~:}
-PostgreSQL\\
-\textbf{\color{navy}Data / IA~:}
-PyTorch, TensorFlow, vision par ordinateur,
-fouille de données et apprentissage\\
+\textbf{\color{navy}Frameworks & Data / IA~:}
+React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\
 \textbf{\color{navy}Outils \& Méthodes~:}
-Git, GitLab, GitHub, Linux ---
-SOLID, patrons de conception, Agile\\
+Git, GitLab, GitHub, Linux,
+patrons de conception (SOLID), Agile\\
 
 \textbf{\color{navy}Langues~:}
 Français (natif), Anglais (courant, TOEIC 900),
-Espagnol (intermédiaire), Allemand (débutant)\par
+Espagnol (intermédiaire), Allemand (débutant), Japoanis( débutant)\par
 }
 
 % ================= AUTRES EXPERIENCES =================
@@ -336,9 +320,9 @@ Espagnol (intermédiaire), Allemand (débutant)\par
 \cvsection{Autres expériences professionnelles}
 
 \cventry
-  {Vendeuse conseil --- C\&A}
+  {Vendeuse conseil - C\&A}
   {}
-  {Août 2024 -- Juillet 2025}
+  {Août 2024 - Juillet 2025}
 
 \begin{cvitemize}
   \item Gestion autonome d'un rayon~:
@@ -347,9 +331,9 @@ Espagnol (intermédiaire), Allemand (débutant)\par
 \end{cvitemize}
 
 \cventry
-  {Coordinatrice de location immobilière --- Indépendante}
+  {Coordinatrice de location immobilière - Indépendante}
   {}
-  {2022 -- 2024}
+  {2022 - 2024}
 
 \begin{cvitemize}
   \item Gestion de locations d'appartements,

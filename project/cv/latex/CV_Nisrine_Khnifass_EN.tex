@@ -1,6 +1,6 @@
 \documentclass[9pt,a4paper]{extarticle}
 
-% ---------- Packages ----------
+% -- Packages --
 \usepackage[
   top=0.5cm,
   bottom=0.5cm,
@@ -16,14 +16,14 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
-% ---------- Colors ----------
+% -- Colors --
 \definecolor{navy}{HTML}{1F2A3C}
 \definecolor{darkblue}{HTML}{0A1628}
 \definecolor{gray}{HTML}{606060}
 \definecolor{black2}{HTML}{1A1A1A}
 \definecolor{accent}{HTML}{93A3B3}
 
-% ---------- Settings ----------
+% -- Settings --
 \pagestyle{empty}
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
@@ -36,7 +36,7 @@
   linkcolor=navy
 }
 
-% ---------- Photo and name ----------
+% -- Photo and name --
 \newcommand{\cvname}[2]{%
   \noindent
   \begin{minipage}[c]{3.1cm}
@@ -65,7 +65,7 @@
   {\color{navy}\hrule height 0.8pt}
 }
 
-% ---------- Profile ----------
+% -- Profile --
 \newcommand{\cvprofile}[1]{%
   \par\vspace{7pt}
   {\centering
@@ -74,7 +74,7 @@
   \vspace{3pt}
 }
 
-% ---------- Sections ----------
+% -- Sections --
 % Distributes available space between sections.
 \newcommand{\cvsection}[1]{%
   \par
@@ -85,7 +85,7 @@
   \vspace{3pt}
 }
 
-% ---------- Entry headings ----------
+% -- Entry headings --
 \newcommand{\cventry}[3]{%
   \noindent
   {\small\bfseries\color{darkblue}#1}%
@@ -93,13 +93,13 @@
   {\footnotesize\itshape\bfseries\color{accent}#3}\par
 }
 
-% ---------- Subheadings ----------
+% -- Subheadings --
 \newcommand{\cvsub}[1]{%
   {\footnotesize\itshape\color{gray}#1\par}
   \vspace{1pt}
 }
 
-% ---------- Lists ----------
+% -- Lists --
 \newenvironment{cvitemize}{%
   \begin{itemize}[
     leftmargin=10pt,
@@ -117,7 +117,7 @@
   \vspace{2pt}
 }
 
-% ---------- Highlighted text ----------
+% -- Highlighted text --
 \newcommand{\hl}[1]{%
   \textbf{\color{darkblue}#1}%
 }
@@ -149,41 +149,30 @@
 }
 
 \cvprofile{%
-  Final-year Computer Engineering student at ENSICAEN,
-  specializing in cybersecurity and electronic payments,
-  currently on an academic exchange in Japan.
-  Seeking a six-month cybersecurity internship
-  starting in March 2027.
+  Final-year engineering student at ENSICAEN, specializing in cybersecurity and electronic payment security. Passionate about application security and the protection of payment systems. Currently on an academic exchange in Japan and seeking a 6-month internship starting in March 2027.
 }
 
 % ================= EXPERIENCE =================
 
-\cvsection{Experience --- Computing \& Engineering}
+\cvsection{Experience - Computing \& Engineering}
 
 \cventry
-  {Research Intern --- Sungkyunkwan University (SKKU)}
+  {Research Intern - Sungkyunkwan University (SKKU)}
   {}
-  {Apr. -- Aug. 2026}
+  {Apr. - Aug. 2026}
 
-\cvsub{Seoul, South Korea}
+\cvsub{Seoul, South Korea ~\textbar~ Python, PyTorch, TensorFlow, computer vision, LLMs}
 
 \begin{cvitemize}
-  \item \hl{Designed and delivered a functional prototype}
-  of a system for monitoring household hazards involving
-  children, operating end to end from a surveillance
-  camera video feed
+  \item \hl{Objective:} designed an end-to-end prototype that detects
+  household hazards involving children from a surveillance camera feed,
+  using a \hl{five-module pipeline} (detection, activity recognition,
+  context analysis, risk assessment, notification)
+  processing \hl{\textasciitilde48 frames/second}
 
-  \item Built a five-module pipeline (child detection,
-  activity recognition, context analysis, risk assessment,
-  notification) in \hl{Python (PyTorch/TensorFlow)},
-  with a perception module processing video feeds at
-  \hl{\textasciitilde48 frames/second}
-
-  \item Achieved \hl{88.7\,\% accuracy} and
+  \item \hl{Results:} \hl{88.7\,\% accuracy} and
   \hl{100\,\% recall on dangerous situations}
-  (no hazards missed across 335 test videos);
-  compared 9 detection models, 3 video recognition models
-  and 6 decision-making configurations (including 4 LLMs)
+  (335 test videos)
 \end{cvitemize}
 
 % ================= PROJECTS =================
@@ -191,24 +180,25 @@
 \cvsection{Projects}
 
 \cventry
-  {Magecart Detection Scanner --- Personal Project}
+  {Magecart Detection Scanner - Personal Project}
   {}
-  {2026 -- ongoing}
+  {2026 - ongoing}
 
 \begin{cvitemize}
-  \item Developing an automated scanner for third-party
-  scripts on e-commerce payment pages in \hl{Python}.
-  \hl{Expected outcome:} identification of web-skimming
-  threats before exploitation
+  \item Analysis of \hl{PCI DSS 4.0 (6.4.3 / 11.6.1)} requirements and
+  \hl{web-skimming} techniques (third-party script injection,
+  obfuscation, exfiltration) to define detection rules.
 
-  \item Implementing a module to support compliance with
-  \hl{PCI DSS 6.4.3 / 11.6.1} requirements
-  (script inventory and tampering detection).
-  \hl{Expected outcome:} an actionable compliance report
+  \item Designing the architecture of a scanner in \hl{Python}
+  (\hl{Playwright}): inventory of scripts on a payment page,
+  \hl{SHA-256} fingerprinting, and tamper detection between scans.
+
+  \item Under development: inventory prototype, local test bench
+  with harmless skimmer, followed by a compliance report.
 \end{cvitemize}
 
 \cventry
-  {Project Lead --- Interactive Escape Game --- H3P Solution}
+  {Project Lead - Interactive Escape Game - H3P Solution}
   {}
   {2026}
 
@@ -226,7 +216,7 @@
   and positively received by the client
 \end{cvitemize}
 
-\cventry{Sudoku Assistant --- Qt / C++}{}{2026}
+\cventry{Sudoku Assistant - Qt / C++}{}{2026}
 
 \begin{cvitemize}
   \item Developed a Sudoku-solving assistant using
@@ -243,7 +233,7 @@
 \cventry
   {Shibaura Institute of Technology}
   {}
-  {Sept. 2026 -- Feb. 2027}
+  {Sept. 2026 - Feb. 2027}
 
 \cvsub{Tokyo, Japan ~\textbar~ Academic exchange semester}
 
@@ -253,9 +243,9 @@
 \end{cvitemize}
 
 \cventry
-  {ENSICAEN --- National Graduate School of Engineering, Caen}
+  {ENSICAEN - National Graduate School of Engineering, Caen}
   {}
-  {2024 -- 2027}
+  {2024 - 2027}
 
 \cvsub{%
   Caen, France ~\textbar~
@@ -271,7 +261,7 @@
   Web \& Mobile Development, Data Mining \& Machine Learning
 \end{cvitemize}
 
-\cventry{EM Normandie (dual degree)}{}{2025 -- 2027}
+\cventry{EM Normandie (dual degree)}{}{2025 - 2027}
 
 \cvsub{Caen, France ~\textbar~ Master's Degree in Management}
 
@@ -281,14 +271,14 @@
 \end{cvitemize}
 
 \cventry
-  {Preparatory Classes, Lycée Carnot --- Honors}
+  {Preparatory Classes, Lycée Carnot - Honors}
   {}
-  {2022 -- 2024}
+  {2022 - 2024}
 
 \cvsub{%
   Dijon, France ~\textbar~
   Two-year preparation for competitive engineering
-  school entrance examinations (PCSI -- PC)
+  school entrance examinations (PCSI - PC)
 }
 
 \begin{cvitemize}
@@ -301,31 +291,23 @@
 \cvsection{Skills}
 
 {\fontsize{8.5}{10}\selectfont
-\textbf{\color{navy}Soft Skills:}
-adaptability, initiative, confident verbal communication,
-technical curiosity, team coordination\\
-\textbf{\color{navy}Cybersecurity:}
-cryptography, software security,
-security technologies, coding theory\\
-\textbf{\color{navy}Electronic Payments:}
-smart cards (ISO7816, EMV),
-electronic payment architecture \& ecosystem,
-payment transaction flows, fraud \& PCI DSS\\
-\textbf{\color{navy}Programming Languages:}
-Python, Java, C, C++, JavaScript, Dart, Bash\\
-\textbf{\color{navy}Frameworks \& Libraries:}
-Flutter, React, Node.js, Qt\\
-\textbf{\color{navy}Databases:}
-PostgreSQL\\
-\textbf{\color{navy}Data / AI:}
-PyTorch, TensorFlow, computer vision,
-data mining and machine learning\\
+\textbf{\color{navy}Cybersecurity \& Cryptography:}
+symmetric/asymmetric cryptography (AES, RSA, ECC), PKI \& X.509,
+TLS 1.3, IPsec/VPN, formal verification (ProVerif)\\
+\textbf{\color{navy}Payment Security:}
+EMV, PCI DSS, HSM \& key management, ISO 8583, ISO/IEC 7816/14443,
+payment transaction flows, fraud prevention\\
+\textbf{\color{navy}Application Security:}
+secure coding, web application security\\
+\textbf{\color{navy}Programming:}
+Python, C, C++, Java, JavaScript, Bash, SQL\\
+\textbf{\color{navy}Frameworks \& Data/AI:}
+React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\
 \textbf{\color{navy}Tools \& Methods:}
-Git, GitLab, GitHub, Linux ---
-SOLID, design patterns, Agile\\
+Linux, Git/GitLab/GitHub, OpenSSL, Agile, design patterns (SOLID)\\
 \textbf{\color{navy}Languages:}
-French (native), English (fluent, TOEIC 900),
-Spanish (intermediate), German (beginner)\par
+French (native), English (fluent, TOEIC 900), Spanish (intermediate),
+German (beginner), Japanese (beginner)\par
 }
 
 % ================= OTHER EXPERIENCE =================
@@ -333,9 +315,9 @@ Spanish (intermediate), German (beginner)\par
 \cvsection{Other Professional Experience}
 
 \cventry
-  {Sales Associate --- C\&A}
+  {Sales Associate - C\&A}
   {}
-  {Aug. 2024 -- July 2025}
+  {Aug. 2024 - July 2025}
 
 \begin{cvitemize}
   \item Independently managed a retail department:
@@ -343,9 +325,9 @@ Spanish (intermediate), German (beginner)\par
 \end{cvitemize}
 
 \cventry
-  {Property Rental Coordinator --- Self-employed}
+  {Property Rental Coordinator - Self-employed}
   {}
-  {2022 -- 2024}
+  {2022 - 2024}
 
 \begin{cvitemize}
   \item Managed apartment rentals, contract tracking,
