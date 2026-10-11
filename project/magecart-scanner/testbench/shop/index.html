@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fake checkout page (test bench)</title>
+</head>
+<body>
+  <h1>Checkout (test page)</h1>
+  <p>This page processes no real payment. It only exists to test the scanner.</p>
+  <form>
+    <label>Card number <input name="card" placeholder="4111 1111 1111 1111"></label>
+    <label>Expiry <input name="expiry" placeholder="12/30"></label>
+    <button type="button">Pay</button>
+  </form>
+
+  <script>window.SHOP_CONFIG = { currency: "EUR" };</script>
+  <script src="/static/shop.js"></script>
+  <script src="http://localhost:8001/analytics.js"></script>
+</body>
+</html>
