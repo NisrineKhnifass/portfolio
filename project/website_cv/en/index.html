@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nisrine Khnifass | Cybersecurity &amp; Consulting</title>
-  <meta name="description" content="Final-year Computer Engineering student at ENSICAEN and dual-degree Management student at EM Normandie. Seeking a six-month cybersecurity internship starting March 2027, with an interest in consulting, risk management and payment security.">
+  <meta name="description" content="Final-year Computer Engineering student at ENSICAEN and dual-degree Management student at EM Normandie. Seeking a six-month cybersecurity internship starting March 2027, with payment security and compliance as the common thread.">
   <meta name="author" content="Nisrine Khnifass">
   <meta name="theme-color" content="#1c2529">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nisrine Khnifass | Cybersecurity &amp; Consulting">
-  <meta property="og:description" content="Engineering and management student seeking a six-month cybersecurity internship starting March 2027, with a particular interest in consulting, risk management and security assessments.">
+  <meta property="og:description" content="Engineering and management student seeking a six-month cybersecurity internship starting March 2027, Common thread: payment security and compliance (EMV, PCI DSS).">
   <meta property="og:url" content="https://nisrinekhnifass.github.io/portfolio/en/index.html">
   <meta property="og:locale" content="en_US">
 
@@ -79,7 +79,7 @@
         <div class="hero__content">
           <p class="hero__status">
             <span class="hero__status-dot" aria-hidden="true"></span>
-            Seeking a 6-month cybersecurity internship — starting March 2027
+            Seeking a 6-month cybersecurity internship, starting March 2027
           </p>
 
           <h1 class="hero__title" id="hero-title">
@@ -88,16 +88,17 @@
           </h1>
 
           <p class="hero__role">Computer Engineering &amp; Management Student</p>
-          <p class="hero__focus">Interested in cybersecurity consulting, risk management &amp; payment security</p>
+          <p class="hero__focus">Payment security &amp; compliance, keen to discover the different cybersecurity careers</p>
 
           <p class="hero__intro">
             Final-year student at <strong>ENSICAEN</strong>, specializing in
             <strong>cybersecurity and electronic payments</strong>, alongside
             a dual degree in Management at <strong>EM Normandie</strong>.
-            I want to combine technical understanding, analysis and
-            communication to help organisations address security challenges.
-            Currently on exchange in <strong>Tokyo</strong>, I am particularly
-            interested in consulting and security assessment roles.
+            My common thread is <strong>payment security</strong> and
+            <strong>compliance</strong> (EMV, PCI DSS), which I also explore
+            through a personal web-skimming detection project.
+            Currently on exchange in <strong>Tokyo</strong>, I am looking for
+            a first internship to discover several sides of cybersecurity.
           </p>
 
           <div class="button-group">
@@ -155,39 +156,108 @@
         <div class="section__header">
           <h2 class="section__title" id="internship-title">The internship I am looking for</h2>
           <p class="section__intro">
-            A six-month cybersecurity internship starting March 2027,
-            in France or abroad. I am especially interested in assignments
-            that combine technical analysis, business needs and communication.
+            A first six-month cybersecurity internship starting March 2027,
+            in France or abroad. My common thread is payment security and
+            compliance. I remain open to several types of assignments to
+            discover the field and refine my direction.
           </p>
         </div>
 
         <ul class="targets">
           <li class="targets__item reveal">
-            <h3 class="targets__title">Cybersecurity consulting &amp; risk management</h3>
+            <h3 class="targets__title">Payment security &amp; compliance</h3>
             <p class="targets__text">
-              Supporting security assessments, analysing risks,
-              developing recommendations and helping organisations
-              prioritise security improvements.
+              <strong>My main focus.</strong> Analysing payment processes,
+              fraud risks and security requirements (EMV, PCI DSS), then
+              checking how they are implemented. This is the subject of my
+              specialisation and of my personal project.
             </p>
           </li>
 
           <li class="targets__item reveal">
-            <h3 class="targets__title">Governance, risk &amp; compliance</h3>
+            <h3 class="targets__title">Application &amp; web security</h3>
             <p class="targets__text">
-              Contributing to security policies, compliance reviews,
-              audit preparation and the monitoring of security action plans.
+              Understanding how an application is attacked and protected:
+              third-party scripts, web security, secure development.
+              My Magecart detection project fits here.
             </p>
           </li>
 
           <li class="targets__item reveal">
-            <h3 class="targets__title">Payment security consulting</h3>
+            <h3 class="targets__title">Consulting, governance &amp; risk management</h3>
             <p class="targets__text">
-              Analysing payment processes, fraud risks and security
-              requirements, with a particular interest in EMV
-              and PCI DSS.
+              Contributing to security assessments, risk analysis,
+              compliance reviews and audit preparation.
             </p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Featured project -->
+    <section class="section section--tight" aria-labelledby="project-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="project-title">Exploring payment security through a practical project</h2>
+          <p class="section__intro">
+            A personal project connecting technical analysis
+            with security and compliance questions.
+          </p>
+        </div>
+
+        <article class="domain reveal">
+          <h3 class="domain__title">Magecart detection scanner (PCI DSS 4.0), in progress</h3>
+
+          <p class="domain__text">
+            Magecart, or web skimming, steals card data directly in the
+            customer’s browser through a compromised third-party script on
+            the payment page. Server-side controls cannot see what runs in
+            the browser. Since 31 March 2025, PCI DSS 4.0 therefore requires
+            merchants to inventory and verify the integrity of the scripts on
+            their payment page (requirement 6.4.3) and to detect any change
+            to that page (requirement 11.6.1).
+          </p>
+
+          <p class="domain__text">
+            My project is a scanner built with Python and Playwright, whose first
+            version (v0.1) is published as open source on GitHub. It is designed
+            to become a WooCommerce plugin that a small business without a
+            security team can use. The aim is for it to inventory the scripts of a
+            payment page with a SHA-256 fingerprint, compare two scans to spot
+            a modified or newly added script, apply anti-skimming rules
+            (unknown domains, obfuscated code, suspicious outbound requests)
+            and produce a timestamped, exportable compliance report. The report
+            helps prepare an audit; it does not replace the assessment of
+            a qualified auditor (QSA).
+          </p>
+
+          <ul class="experience__list">
+            <li><strong>Already done:</strong> study of the PCI DSS 4.0
+              requirements and of the Magecart attack cycle, architecture and
+              MVP definition, then a first v0.1 prototype: inventory of a page's
+              scripts with SHA-256 fingerprints, comparison between two scans,
+              domain allowlist, and a local test bench with a harmless fake
+              third-party script.</li>
+            <li><strong>Coming next:</strong> detection of suspicious outbound
+              requests, email or webhook alerts, an exportable compliance
+              report, then the WooCommerce plugin interface.</li>
+          </ul>
+
+          <ul class="tags">
+            <li class="tags__item tags__item--accent">Payment security</li>
+            <li class="tags__item tags__item--accent">Web security</li>
+            <li class="tags__item">PCI DSS 6.4.3 / 11.6.1</li>
+            <li class="tags__item">Script monitoring</li>
+            <li class="tags__item">Python</li>
+            <li class="tags__item">Playwright</li>
+            <li class="tags__item">SHA-256</li>
+          </ul>
+
+          <ul class="documents" aria-label="Project documents">
+            <li><a class="documents__link" href="../assets/docs/magecart-presentation-en.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Project presentation slides</a></li>
+            <li><a class="documents__link" href="https://github.com/NisrineKhnifass/magecart-scanner" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Source code on GitHub</a></li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -285,47 +355,6 @@
           <a class="button button--ghost" href="experience.html">Explore my experience</a>
           <a class="button button--ghost" href="education.html">See my education</a>
         </div>
-      </div>
-    </section>
-
-    <!-- Featured project -->
-    <section class="section section--tight" aria-labelledby="project-title">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title" id="project-title">Exploring payment security through a practical project</h2>
-          <p class="section__intro">
-            A personal project connecting technical analysis
-            with security and compliance questions.
-          </p>
-        </div>
-
-        <article class="domain reveal">
-          <h3 class="domain__title">Magecart detection scanner — in progress</h3>
-
-          <p class="domain__text">
-            I am developing a Python scanner to analyse third-party scripts
-            on e-commerce payment pages. The goal is to flag suspicious
-            behaviour and unexpected script changes that may indicate
-            web skimming.
-          </p>
-
-          <p class="domain__text">
-            The planned scope includes a script inventory and tampering
-            detection to support checks related to PCI DSS requirements
-            6.4.3 and 11.6.1. I want the findings to be presented in
-            a clear report that helps identify issues and guide
-            follow-up actions.
-          </p>
-
-          <ul class="tags">
-            <li class="tags__item tags__item--accent">Payment security</li>
-            <li class="tags__item tags__item--accent">Web security</li>
-            <li class="tags__item">PCI DSS</li>
-            <li class="tags__item">Script monitoring</li>
-            <li class="tags__item">Python</li>
-            <li class="tags__item">Reporting</li>
-          </ul>
-        </article>
       </div>
     </section>
 

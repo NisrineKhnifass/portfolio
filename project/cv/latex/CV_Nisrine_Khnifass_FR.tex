@@ -22,6 +22,7 @@
 \definecolor{gray}{HTML}{606060}
 \definecolor{black2}{HTML}{1A1A1A}
 \definecolor{accent}{HTML}{93A3B3}
+\definecolor{datecol}{HTML}{4A5568}
 
 % - Réglages -
 \pagestyle{empty}
@@ -58,7 +59,7 @@
     {\fontsize{28}{31}\selectfont
       \bfseries\color{navy}#1\par}
     \vspace{6pt}
-    {\fontsize{8.5}{10.5}\selectfont
+    {\fontsize{8.5}{10.8}\selectfont
       \color{gray}#2\par}
   \end{minipage}
   \par\vspace{5pt}
@@ -87,30 +88,31 @@
 
 % - Titres des entrées -
 \newcommand{\cventry}[3]{%
+  \vspace{3pt}
   \noindent
-  {\small\bfseries\color{darkblue}#1}%
+  {\fontsize{9.5}{11}\selectfont\bfseries\color{darkblue}#1}%
   \hfill
-  {\footnotesize\itshape\bfseries\color{accent}#3}\par
+  {\footnotesize\bfseries\color{datecol}#3}\par
 }
 
 % - Sous-titres -
 \newcommand{\cvsub}[1]{%
-  {\footnotesize\itshape\color{gray}#1\par}
+  {\footnotesize\itshape\color{datecol}#1\par}
   \vspace{1pt}
 }
 
 % - Listes -
 \newenvironment{cvitemize}{%
   \begin{itemize}[
-    leftmargin=10pt,
-    itemsep=1pt,
+    leftmargin=9pt,
+    itemsep=1.5pt,
     topsep=1pt,
     parsep=0pt,
     partopsep=0pt,
-    label=\textbullet,
-    font=\color{accent}
+    label={\raisebox{0.35ex}{\tiny$\bullet$}},
+    font=\color{navy}
   ]
-  \fontsize{8}{9.2}\selectfont
+  \fontsize{8.3}{10}\selectfont
   \color{black2}
 }{%
   \end{itemize}
@@ -124,7 +126,7 @@
 
 \begin{document}
 
-% Hauteur fixe : l'espace est réparti jusqu'en bas de la page.
+% Hauteur fixe : l'espace restant est réparti entre les rubriques.
 \noindent
 \begin{minipage}[t][\dimexpr\textheight-2pt\relax][s]{\textwidth}
 
@@ -135,31 +137,91 @@
        {nisrine.khnifass@hotmail.com}
   ~\textbar~
   +33 7 67 87 07 45
-  \\[3pt]
-  LinkedIn~: Nisrine Khnifass
   ~\textbar~
   Longvic, France
   \\[3pt]
-  GitHub~:
-  \href{https://github.com/NisrineKhnifass}{NisrineKhnifass}
+  LinkedIn~: Nisrine Khnifass
   \\[3pt]
-  Portfolio~:
+  \textbf{\color{navy}GitHub~:}
+  \href{https://github.com/NisrineKhnifass}{github.com/NisrineKhnifass}
+  \\[3pt]
+  \textbf{\color{navy}Portfolio~:}
   \href{https://nisrinekhnifass.github.io/portfolio/}
-       {https://nisrinekhnifass.github.io/portfolio/}
+       {nisrinekhnifass.github.io/portfolio}
 }
 
 \cvprofile{%
- Élève ingénieure en dernière année à l’ENSICAEN, 
- spécialisée en cybersécurité et sécurité des paiements 
- électroniques. Passionnée par la sécurité applicative,
-  la protection des systèmes de paiement. 
-  Actuellement en échange académique au Japon et à la recherche 
-  d’un stage de 6 mois à partir de mars 2027
+  Élève ingénieure en dernière année à l'ENSICAEN,
+  spécialisée en cybersécurité et sécurité des paiements
+  électroniques. Passionnée par la sécurité applicative et la
+  protection des systèmes de paiement. Actuellement en échange
+  académique au Japon et à la recherche d'un stage de 6 mois
+  à partir de mars 2027.
 }
+
+% ================= PROJETS =================
+
+\cvsection{Projets}
+
+\cventry
+  {Scanner de détection Magecart (PCI DSS 4.0) - Projet personnel}
+  {}
+  {2026 - en cours}
+
+\cvsub{Python, Playwright, SHA-256 ~\textbar~ Sécurité applicative et conformité des paiements e-commerce}
+
+\begin{cvitemize}
+  \item \hl{Objectif~:} détecter le web-skimming (Magecart) sur les
+  pages de paiement e-commerce et produire un rapport de conformité
+  aux exigences PCI DSS 4.0 (6.4.3 inventaire des scripts, 11.6.1 détection d'altération).
+
+  \item \hl{Déjà réalisé~:} étude des exigences PCI DSS 4.0 et du
+  cycle d'attaque Magecart (compromission d'un script tiers, injection de
+  code obfusqué, exfiltration des données de carte) ; cartographie
+  des exigences vers les fonctions du produit ; conception de l'architecture
+  et définition du MVP (inventaire des scripts avec empreinte SHA-256,
+  comparaison entre deux scans, règles anti-skimming, rapport horodaté).
+
+  \item \hl{Prochaines étapes~:} prototype de scanner Playwright,
+  banc d'essai local avec skimmer inoffensif, puis interface de plugin WooCommerce.
+\end{cvitemize}
+
+\cventry
+  {Travaux pratiques de cybersécurité - ENSICAEN}
+  {}
+  {2024 - 2026}
+
+\begin{cvitemize}
+  \item \hl{Cryptographie~:} chiffrements classiques (César, Vigenère) et
+  cryptanalyse, AES / RSA en Python / C, échange de clés Diffie-Hellman,
+  hachage et mots de passe (sel, bcrypt, casse avec John the Ripper / Hashcat)
+
+  \item \hl{Réseau~:} analyse de trames (Wireshark), scan de ports (Nmap),
+  attaque man-in-the-middle (ARP spoofing), interception de protocoles non
+  chiffrés (HTTP, FTP, Telnet), TLS et certificats (OpenSSL)
+
+  \item \hl{Paiement et cartes à puce~:} commandes APDU (ISO 7816),
+  analyse d'un flux de transaction EMV, messages ISO 8583,
+  HSM et gestion de clés (PIN, KCV), étude de cas PCI DSS
+\end{cvitemize}
+
+\cventry
+  {Cheffe de projet - Escape Game interactif - H3P Solution}
+  {}
+  {2026}
+
+\begin{cvitemize}
+  \item \hl{Direction d'une équipe de 4 personnes} avec GitLab pour
+  concevoir une application mobile d'escape game en Flutter,
+  avec gestion de plusieurs équipes en temps réel,
+  carte générée automatiquement, chronomètre et questions interactives.
+
+  \item \hl{Livré un MVP fonctionnel}, validé et apprécié par le client.
+\end{cvitemize}
 
 % ================= EXPERIENCE =================
 
-\cvsection{Expérience - Informatique \& Ingénierie}
+\cvsection{Expérience - Recherche}
 
 \cventry
   {Stagiaire de recherche - Sungkyunkwan University (SKKU)}
@@ -169,61 +231,12 @@
 \cvsub{Séoul, Corée du Sud ~\textbar~ Python, PyTorch, TensorFlow, vision par ordinateur, LLM}
 
 \begin{cvitemize}
-  \item \hl{Objectif~:} conception d'un prototype de bout en bout qui détecte
-  les dangers domestiques pour les enfants à partir d'une caméra de surveillance,
-  via un \hl{pipeline en 5 modules} (détection, reconnaissance d'activité,
-  analyse du contexte, évaluation du risque, notification)
-  traitant \hl{\textasciitilde48 images/seconde}
+  \item \hl{Objectif~:} prototype de bout en bout détectant les dangers
+  domestiques pour les enfants via une caméra de surveillance
+  (pipeline en 5 modules, \hl{\textasciitilde48 images/seconde}).
 
   \item \hl{Résultats~:} \hl{88,7\,\% d'accuracy} et
   \hl{100\,\% de rappel sur les situations dangereuses}.
-\end{cvitemize}
-
-% ================= PROJETS =================
-
-\cvsection{Projets}
-
-\cventry
-  {Scanner de détection Magecart - Projet personnel}
-  {}
-  {2026 - en cours}
-
-\begin{cvitemize}
-  \item Analyse des exigences \hl{PCI DSS 4.0 (6.4.3 / 11.6.1)} et
-  des techniques de \hl{web-skimming} (injection de scripts tiers,
-  obfuscation, exfiltration) pour définir les règles de détection.
-
-  \item Conception de l'architecture d'un scanner en \hl{Python}
-  (\hl{Playwright}) : inventaire des scripts d'une page de paiement,
-  empreinte \hl{SHA-256} et détection d'altération entre deux scans.
-
-  \item En développement~: prototype d'inventaire, banc d'essai local
-  avec skimmer inoffensif, puis rapport de conformité.
-\end{cvitemize}
-
-
-\cventry
-  {Cheffe de projet - Escape Game interactif - H3P Solution}
-  {}
-  {2026}
-
-\begin{cvitemize}
-  \item \hl{Direction d'une équipe de 4 personnes} avec \hl{GitLab} pour
-  concevoir une application mobile d'escape game en \hl{Flutter},
-  avec \hl{gestion de plusieurs équipes en temps réel},
-  carte générée automatiquement, chronomètre et questions interactives
-
-  \item \hl{Livré un MVP fonctionnel}, validé et apprécié par le client
-\end{cvitemize}
-
-\cventry{Sudoku Assistant - Qt / C++}{}{2026}
-
-\begin{cvitemize}
-  \item Développement d'un assistant de résolution de grilles
-  de Sudoku, avec une \hl{architecture MVP}
-
-  \item Implémentation d'une internationalisation dynamique
-  de l'interface (français / anglais)
 \end{cvitemize}
 
 % ================= FORMATION =================
@@ -235,12 +248,7 @@
   {}
   {Sept. 2026 - Fév. 2027}
 
-\cvsub{Tokyo, Japon ~\textbar~ Semestre d'échange académique}
-
-\begin{cvitemize}
-  \item Poursuite du cursus d'ingénieur en informatique
-  dans le cadre d'une mobilité internationale
-\end{cvitemize}
+\cvsub{Tokyo, Japon ~\textbar~ Semestre d'échange académique en informatique}
 
 \cventry
   {ENSICAEN - École nationale supérieure d'ingénieurs de Caen}
@@ -258,61 +266,44 @@
   Sécurité du logiciel, Technologie de sécurité,
   Théorie des codes, Monétique \& Paiement électronique
   (ISO7816, EMV, PCI DSS), Génie logiciel,
-  Développement web \& mobile,
-  Fouille de données \& apprentissage
+  Développement web \& mobile, Fouille de données \& apprentissage
 \end{cvitemize}
 
 \cventry{EM Normandie (double diplôme)}{}{2025 - 2027}
 
 \cvsub{Caen, France ~\textbar~ Master's Degree in Management}
 
-\begin{cvitemize}
-  \item Cours~: Leadership \& Management, Marketing,
-  Stratégie d'entreprise, Finance, Éthique
-\end{cvitemize}
-
 \cventry
   {Classes préparatoires, Lycée Carnot - mention Bien}
   {}
   {2022 - 2024}
 
-\cvsub{%
-  Dijon, France ~\textbar~
-  Préparation aux concours des grandes écoles d'ingénieurs
-  (PCSI - PC)
-}
-
-\begin{cvitemize}
-  \item Algèbre, Analyse, Informatique,
-  Physique fondamentale, Chimie organique et physique
-\end{cvitemize}
+\cvsub{Dijon, France ~\textbar~ Classes préparatoires scientifiques (PCSI - PC)}
 
 % ================= COMPETENCES =================
 
 \cvsection{Compétences}
 
-{\fontsize{8.5}{10}\selectfont
+{\fontsize{8.5}{10.8}\selectfont
 
 \textbf{\color{navy}Cybersécurité et cryptographie~:}
-cryptographie symetrique / asymetrique ( AES, RSA, ECC),PKI & X.509, TLS 1.3, IPsec/VPN, formal verification(ProVerif)
+cryptographie symétrique / asymétrique (AES, RSA, ECC), hachage (SHA-256),
+PKI et X.509, TLS 1.3, IPsec / VPN, vérification formelle (ProVerif)\\[2pt]
 \textbf{\color{navy}Sécurité des paiements~:}
-EMV, PCI DSS, HSM et gestion des clés,
- ISO 8583, ISO/IEC 7816/14443,
- flux de transactions de paiement,
- prévention de la fraude
-architecture \& écosystème du paiement électronique\\
-\textbf{\color{navy}Langages~:} développement sécurisé, sécurité des applications web \\
+EMV, PCI DSS (6.4.3 / 11.6.1), HSM et gestion des clés,
+ISO 8583, ISO/IEC 7816 / 14443, prévention de la fraude\\[2pt]
+\textbf{\color{navy}Sécurité applicative et réseau~:}
+développement sécurisé, sécurité des applications web,
+sécurité réseau (Wireshark, Nmap, OpenSSL)\\[2pt]
 \textbf{\color{navy}Langages~:}
-Python, Java, C, C++, JavaScript, Dart, Bash\\
-\textbf{\color{navy}Frameworks & Data / IA~:}
-React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\
+Python, Java, C, C++, JavaScript, Dart, Bash\\[2pt]
+\textbf{\color{navy}Frameworks \& Data / IA~:}
+React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\[2pt]
 \textbf{\color{navy}Outils \& Méthodes~:}
-Git, GitLab, GitHub, Linux,
-patrons de conception (SOLID), Agile\\
-
+Git, GitLab, GitHub, Linux, patrons de conception (SOLID), Agile\\[2pt]
 \textbf{\color{navy}Langues~:}
 Français (natif), Anglais (courant, TOEIC 900),
-Espagnol (intermédiaire), Allemand (débutant), Japoanis( débutant)\par
+Espagnol (intermédiaire), Allemand (débutant), Japonais (débutant)\par
 }
 
 % ================= AUTRES EXPERIENCES =================
@@ -323,28 +314,23 @@ Espagnol (intermédiaire), Allemand (débutant), Japoanis( débutant)\par
   {Vendeuse conseil - C\&A}
   {}
   {Août 2024 - Juillet 2025}
-
 \begin{cvitemize}
-  \item Gestion autonome d'un rayon~:
-  réassort, contrôle des stocks,
-  conseil et accompagnement client
+  \item Gestion autonome d'un rayon~: réassort, contrôle des stocks, conseil client
 \end{cvitemize}
 
 \cventry
   {Coordinatrice de location immobilière - Indépendante}
   {}
   {2022 - 2024}
-
 \begin{cvitemize}
-  \item Gestion de locations d'appartements,
-  suivi des contrats, planification et tâches administratives
+  \item Gestion de locations d'appartements, suivi des contrats, planification
 \end{cvitemize}
 
 % ================= INFORMATIONS COMPLEMENTAIRES =================
 
 \cvsection{Informations complémentaires}
 
-{\fontsize{8.5}{10}\selectfont
+{\fontsize{8.5}{10.5}\selectfont
 \textbf{\color{navy}Centres d'intérêt~:}
 Entrepreneuriat, Voyage, Sport, Cuisine
 ~\textbar~

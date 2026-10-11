@@ -1,6 +1,6 @@
 \documentclass[9pt,a4paper]{extarticle}
 
-% -- Packages --
+% - Packages -
 \usepackage[
   top=0.5cm,
   bottom=0.5cm,
@@ -16,14 +16,15 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
-% -- Colors --
+% - Couleurs -
 \definecolor{navy}{HTML}{1F2A3C}
 \definecolor{darkblue}{HTML}{0A1628}
 \definecolor{gray}{HTML}{606060}
 \definecolor{black2}{HTML}{1A1A1A}
 \definecolor{accent}{HTML}{93A3B3}
+\definecolor{datecol}{HTML}{4A5568}
 
-% -- Settings --
+% - Réglages -
 \pagestyle{empty}
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
@@ -36,7 +37,7 @@
   linkcolor=navy
 }
 
-% -- Photo and name --
+% - Photo et nom -
 \newcommand{\cvname}[2]{%
   \noindent
   \begin{minipage}[c]{3.1cm}
@@ -58,14 +59,14 @@
     {\fontsize{28}{31}\selectfont
       \bfseries\color{navy}#1\par}
     \vspace{6pt}
-    {\fontsize{8.5}{10.5}\selectfont
+    {\fontsize{8.5}{10.8}\selectfont
       \color{gray}#2\par}
   \end{minipage}
   \par\vspace{5pt}
   {\color{navy}\hrule height 0.8pt}
 }
 
-% -- Profile --
+% - Présentation agrandie -
 \newcommand{\cvprofile}[1]{%
   \par\vspace{7pt}
   {\centering
@@ -74,8 +75,8 @@
   \vspace{3pt}
 }
 
-% -- Sections --
-% Distributes available space between sections.
+% - Rubriques -
+% Répartit l'espace disponible entre les rubriques.
 \newcommand{\cvsection}[1]{%
   \par
   \vspace{4pt plus 1fill}
@@ -85,46 +86,47 @@
   \vspace{3pt}
 }
 
-% -- Entry headings --
+% - Titres des entrées -
 \newcommand{\cventry}[3]{%
+  \vspace{3pt}
   \noindent
-  {\small\bfseries\color{darkblue}#1}%
+  {\fontsize{9.5}{11}\selectfont\bfseries\color{darkblue}#1}%
   \hfill
-  {\footnotesize\itshape\bfseries\color{accent}#3}\par
+  {\footnotesize\bfseries\color{datecol}#3}\par
 }
 
-% -- Subheadings --
+% - Sous-titres -
 \newcommand{\cvsub}[1]{%
-  {\footnotesize\itshape\color{gray}#1\par}
+  {\footnotesize\itshape\color{datecol}#1\par}
   \vspace{1pt}
 }
 
-% -- Lists --
+% - Listes -
 \newenvironment{cvitemize}{%
   \begin{itemize}[
-    leftmargin=10pt,
-    itemsep=1pt,
+    leftmargin=9pt,
+    itemsep=1.5pt,
     topsep=1pt,
     parsep=0pt,
     partopsep=0pt,
-    label=\textbullet,
-    font=\color{accent}
+    label={\raisebox{0.35ex}{\tiny$\bullet$}},
+    font=\color{navy}
   ]
-  \fontsize{8}{9.2}\selectfont
+  \fontsize{8.3}{10}\selectfont
   \color{black2}
 }{%
   \end{itemize}
   \vspace{2pt}
 }
 
-% -- Highlighted text --
+% - Texte mis en valeur -
 \newcommand{\hl}[1]{%
   \textbf{\color{darkblue}#1}%
 }
 
 \begin{document}
 
-% Fixed height: distributes space down to the bottom of the page.
+% Fixed height: remaining space is distributed between sections.
 \noindent
 \begin{minipage}[t][\dimexpr\textheight-2pt\relax][s]{\textwidth}
 
@@ -135,26 +137,92 @@
        {nisrine.khnifass@hotmail.com}
   ~\textbar~
   +33 7 67 87 07 45
-  \\[3pt]
-  LinkedIn: Nisrine Khnifass
   ~\textbar~
   Longvic, France
   \\[3pt]
-  GitHub:
-  \href{https://github.com/NisrineKhnifass}{NisrineKhnifass}
+  LinkedIn: Nisrine Khnifass
   \\[3pt]
-  Portfolio:
+  \textbf{\color{navy}GitHub:}
+  \href{https://github.com/NisrineKhnifass}{github.com/NisrineKhnifass}
+  \\[3pt]
+  \textbf{\color{navy}Portfolio:}
   \href{https://nisrinekhnifass.github.io/portfolio/}
-       {https://nisrinekhnifass.github.io/portfolio/}
+       {nisrinekhnifass.github.io/portfolio}
 }
 
 \cvprofile{%
-  Final-year engineering student at ENSICAEN, specializing in cybersecurity and electronic payment security. Passionate about application security and the protection of payment systems. Currently on an academic exchange in Japan and seeking a 6-month internship starting in March 2027.
+  Final-year engineering student at ENSICAEN, specializing in
+  cybersecurity and electronic payment security. Passionate about
+  application security and the protection of payment systems.
+  Currently on an academic exchange in Japan and seeking a 6-month
+  internship starting in March 2027.
 }
 
-% ================= EXPERIENCE =================
+% ================= PROJECTS =================
 
-\cvsection{Experience - Computing \& Engineering}
+\cvsection{Projects}
+
+\cventry
+  {Magecart Detection Scanner (PCI DSS 4.0) - Personal Project}
+  {}
+  {2026 - ongoing}
+
+\cvsub{Python, Playwright, SHA-256 ~\textbar~ Application security and e-commerce payment compliance}
+
+\begin{cvitemize}
+  \item \hl{Objective:} detect web skimming (Magecart) on e-commerce
+  payment pages and produce a compliance report for
+  PCI DSS 4.0 requirements (6.4.3 script inventory, 11.6.1 tamper detection).
+
+  \item \hl{Completed:} study of PCI DSS 4.0 requirements and of the
+  Magecart attack cycle (third-party script compromise, obfuscated code
+  injection, card data exfiltration); mapping of requirements to product
+  features; architecture design and MVP definition (script inventory with
+  SHA-256 fingerprints, comparison between two scans, anti-skimming rules,
+  timestamped report).
+
+  \item \hl{Next steps:} Playwright scanner prototype, local test bench
+  with a harmless skimmer, then a WooCommerce plugin interface.
+\end{cvitemize}
+
+\cventry
+  {Cybersecurity Lab Work - ENSICAEN}
+  {}
+  {2024 - 2026}
+
+\begin{cvitemize}
+  \item \hl{Cryptography:} classical ciphers (Caesar, Vigenère) and
+  cryptanalysis, AES / RSA in Python / C, Diffie-Hellman key exchange,
+  hashing and password storage (salting, bcrypt, cracking with
+  John the Ripper / Hashcat)
+
+  \item \hl{Networking:} packet analysis (Wireshark), port scanning (Nmap),
+  man-in-the-middle attack (ARP spoofing), interception of unencrypted
+  protocols (HTTP, FTP, Telnet), TLS and certificates (OpenSSL)
+
+  \item \hl{Payments and smart cards:} APDU commands (ISO 7816),
+  EMV transaction flow analysis, ISO 8583 messages,
+  HSM and key management (PIN, KCV), PCI DSS case study
+\end{cvitemize}
+
+\cventry
+  {Project Lead - Interactive Escape Game - H3P Solution}
+  {}
+  {2026}
+
+\begin{cvitemize}
+  \item \hl{Led a team of four} using GitLab to design an interactive
+  escape game mobile application in Flutter, with real-time management
+  of multiple teams, an automatically generated map, a timer and
+  interactive questions.
+
+  \item \hl{Delivered a functional MVP}, validated and positively received
+  by the client.
+\end{cvitemize}
+
+% ================= RESEARCH EXPERIENCE =================
+
+\cvsection{Experience - Research}
 
 \cventry
   {Research Intern - Sungkyunkwan University (SKKU)}
@@ -164,66 +232,12 @@
 \cvsub{Seoul, South Korea ~\textbar~ Python, PyTorch, TensorFlow, computer vision, LLMs}
 
 \begin{cvitemize}
-  \item \hl{Objective:} designed an end-to-end prototype that detects
-  household hazards involving children from a surveillance camera feed,
-  using a \hl{five-module pipeline} (detection, activity recognition,
-  context analysis, risk assessment, notification)
-  processing \hl{\textasciitilde48 frames/second}
+  \item \hl{Objective:} end-to-end prototype detecting household hazards
+  for children from a surveillance camera feed
+  (five-module pipeline, \hl{\textasciitilde48 frames/second}).
 
   \item \hl{Results:} \hl{88.7\,\% accuracy} and
-  \hl{100\,\% recall on dangerous situations}
-  (335 test videos)
-\end{cvitemize}
-
-% ================= PROJECTS =================
-
-\cvsection{Projects}
-
-\cventry
-  {Magecart Detection Scanner - Personal Project}
-  {}
-  {2026 - ongoing}
-
-\begin{cvitemize}
-  \item Analysis of \hl{PCI DSS 4.0 (6.4.3 / 11.6.1)} requirements and
-  \hl{web-skimming} techniques (third-party script injection,
-  obfuscation, exfiltration) to define detection rules.
-
-  \item Designing the architecture of a scanner in \hl{Python}
-  (\hl{Playwright}): inventory of scripts on a payment page,
-  \hl{SHA-256} fingerprinting, and tamper detection between scans.
-
-  \item Under development: inventory prototype, local test bench
-  with harmless skimmer, followed by a compliance report.
-\end{cvitemize}
-
-\cventry
-  {Project Lead - Interactive Escape Game - H3P Solution}
-  {}
-  {2026}
-
-\begin{cvitemize}
-  \item \hl{Managed and coordinated a team of four}
-  using \hl{GitLab} (version control and task tracking)
-  to design an interactive escape game mobile application
-  in \hl{Flutter}
-
-  \item Developed advanced features:
-  simultaneous management of \hl{multiple teams in real time},
-  automatically generated map, timer and interactive questions
-
-  \item \hl{Delivered a functional MVP}, validated
-  and positively received by the client
-\end{cvitemize}
-
-\cventry{Sudoku Assistant - Qt / C++}{}{2026}
-
-\begin{cvitemize}
-  \item Developed a Sudoku-solving assistant using
-  an \hl{MVP architecture}
-
-  \item Implemented dynamic interface language switching
-  (French / English)
+  \hl{100\,\% recall on dangerous situations} (335 test videos).
 \end{cvitemize}
 
 % ================= EDUCATION =================
@@ -235,12 +249,7 @@
   {}
   {Sept. 2026 - Feb. 2027}
 
-\cvsub{Tokyo, Japan ~\textbar~ Academic exchange semester}
-
-\begin{cvitemize}
-  \item Continuing Computer Engineering studies
-  through an international exchange program
-\end{cvitemize}
+\cvsub{Tokyo, Japan ~\textbar~ Academic exchange semester in computer science}
 
 \cventry
   {ENSICAEN - National Graduate School of Engineering, Caen}
@@ -257,7 +266,7 @@
   \item Coursework: Cybersecurity, Cryptography,
   Software Security, Security Technologies,
   Coding Theory, Electronic Payments
-  (ISO7816, EMV, PCI DSS), Software Engineering,
+  (ISO 7816, EMV, PCI DSS), Software Engineering,
   Web \& Mobile Development, Data Mining \& Machine Learning
 \end{cvitemize}
 
@@ -265,49 +274,37 @@
 
 \cvsub{Caen, France ~\textbar~ Master's Degree in Management}
 
-\begin{cvitemize}
-  \item Coursework: Leadership \& Management, Marketing,
-  Business Strategy, Finance, Ethics
-\end{cvitemize}
-
 \cventry
   {Preparatory Classes, Lycée Carnot - Honors}
   {}
   {2022 - 2024}
 
-\cvsub{%
-  Dijon, France ~\textbar~
-  Two-year preparation for competitive engineering
-  school entrance examinations (PCSI - PC)
-}
-
-\begin{cvitemize}
-  \item Algebra, Calculus, Computer Science,
-  Fundamental Physics, Organic and Physical Chemistry
-\end{cvitemize}
+\cvsub{Dijon, France ~\textbar~ Preparatory classes for competitive engineering school entrance exams (PCSI - PC)}
 
 % ================= SKILLS =================
 
 \cvsection{Skills}
 
-{\fontsize{8.5}{10}\selectfont
+{\fontsize{8.5}{10.8}\selectfont
+
 \textbf{\color{navy}Cybersecurity \& Cryptography:}
-symmetric/asymmetric cryptography (AES, RSA, ECC), PKI \& X.509,
-TLS 1.3, IPsec/VPN, formal verification (ProVerif)\\
+symmetric / asymmetric cryptography (AES, RSA, ECC), hashing (SHA-256),
+PKI \& X.509, TLS 1.3, IPsec / VPN, formal verification (ProVerif)\\[2pt]
 \textbf{\color{navy}Payment Security:}
-EMV, PCI DSS, HSM \& key management, ISO 8583, ISO/IEC 7816/14443,
-payment transaction flows, fraud prevention\\
-\textbf{\color{navy}Application Security:}
-secure coding, web application security\\
+EMV, PCI DSS (6.4.3 / 11.6.1), HSM \& key management,
+ISO 8583, ISO/IEC 7816 / 14443, fraud prevention\\[2pt]
+\textbf{\color{navy}Application \& Network Security:}
+secure coding, web application security,
+network security (Wireshark, Nmap, OpenSSL)\\[2pt]
 \textbf{\color{navy}Programming:}
-Python, C, C++, Java, JavaScript, Bash, SQL\\
-\textbf{\color{navy}Frameworks \& Data/AI:}
-React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\
+Python, Java, C, C++, JavaScript, Dart, Bash\\[2pt]
+\textbf{\color{navy}Frameworks \& Data / AI:}
+React, Node.js, Flutter, PostgreSQL, PyTorch, TensorFlow, machine learning\\[2pt]
 \textbf{\color{navy}Tools \& Methods:}
-Linux, Git/GitLab/GitHub, OpenSSL, Agile, design patterns (SOLID)\\
+Git, GitLab, GitHub, Linux, design patterns (SOLID), Agile\\[2pt]
 \textbf{\color{navy}Languages:}
-French (native), English (fluent, TOEIC 900), Spanish (intermediate),
-German (beginner), Japanese (beginner)\par
+French (native), English (fluent, TOEIC 900),
+Spanish (intermediate), German (beginner), Japanese (beginner)\par
 }
 
 % ================= OTHER EXPERIENCE =================
@@ -318,33 +315,31 @@ German (beginner), Japanese (beginner)\par
   {Sales Associate - C\&A}
   {}
   {Aug. 2024 - July 2025}
-
 \begin{cvitemize}
-  \item Independently managed a retail department:
-  restocking, inventory checks, customer advice and assistance
+  \item Independently managed a retail department: restocking,
+  inventory checks, customer advice and assistance
 \end{cvitemize}
 
 \cventry
   {Property Rental Coordinator - Self-employed}
   {}
   {2022 - 2024}
-
 \begin{cvitemize}
-  \item Managed apartment rentals, contract tracking,
-  scheduling and administrative tasks
+  \item Managed apartment rentals, contract tracking, scheduling
+  and administrative tasks
 \end{cvitemize}
 
 % ================= ADDITIONAL INFORMATION =================
 
 \cvsection{Additional Information}
 
-{\fontsize{8.5}{10}\selectfont
+{\fontsize{8.5}{10.5}\selectfont
 \textbf{\color{navy}Interests:}
 Entrepreneurship, Travel, Sports, Cooking
 ~\textbar~
 \textbf{\color{navy}Other:}
 Driving license (Category B), own vehicle,
-BAFA (French youth activity leader qualification)\par
+BAFA (French youth activity leader certificate)\par
 }
 
 \end{minipage}
